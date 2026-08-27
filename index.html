@@ -272,7 +272,7 @@
 
   <section id="trace">
     <h2>Trajectories</h2>
-    <p>Real agent runs. The first is the paper case study; the rest are logged traces with tool-produced frames from <code>html/output</code>. Switch tabs to inspect each path—without packing the full video into one context.</p>
+    <p>Real agent runs. The first is the paper case study; the rest are logged traces with tool-produced frames. Switch tabs to inspect each path—without packing the full video into one context.</p>
     <div class="tabs" id="trace-tabs">
       <button class="active" type="button" data-tab="paper">Paper · cycling 37 min</button>
     </div>
@@ -354,11 +354,20 @@
     vHlSoxg8WHo: "Keisha expression · LVBench"
   };
 
+  function fmtDur(t) {
+    const ev = (t.events || []).find(e => e.kind === "obs" && e.tool === "get_video_duration");
+    const m = ev && String(ev.text || "").match(/(\d+):(\d{2}):(\d{2})/);
+    if (!m) return "";
+    const min = Math.round((+m[1]) * 60 + (+m[2]) + (+m[3]) / 60);
+    return min + " min";
+  }
+
   traces.forEach((t, i) => {
     const b = document.createElement("button");
     b.type = "button";
     b.dataset.tab = "t" + i;
-    b.textContent = (labels[t.video] || t.video) + " · " + t.n_tools + " tools";
+    const dur = fmtDur(t);
+    b.textContent = (labels[t.video] || t.video) + (dur ? " · " + dur : "");
     tabs.appendChild(b);
   });
 
@@ -423,10 +432,6 @@
       }
     });
     html += "</div>";
-<<<<<<< HEAD
-    html += "<p class=\"note\">Frames are tool outputs copied to <code>output/</code>.</p>";
-=======
->>>>>>> a3dc10d (first upload)
     return html;
   }
 

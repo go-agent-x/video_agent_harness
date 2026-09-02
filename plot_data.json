@@ -1,0 +1,96 @@
+{
+  "lvbench": {
+    "title": "LVBench (wo audio and subtitle) - Long Video",
+    "caption": "LVBench accuracy comparison (wo. subtitle or audio)",
+    "ylabel": "Accuracy (%)",
+    "ylim": [50, 85],
+    "yticks": [50, 55, 60, 65, 70, 75, 80, 85],
+    "groups": [
+      {
+        "name": "Agent",
+        "color": "#E74C3C",
+        "items": [
+          {"method": "Ours", "accuracy": 76.5, "highlight": true, "color": "#C0392B"},
+          {"method": "HAVEN", "accuracy": 71.7},
+          {"method": "VideoSeek", "accuracy": 68.4}
+        ]
+      },
+      {
+        "name": "LMM",
+        "color": "#3498DB",
+        "items": [
+          {"method": "Seed-2.0-pro", "accuracy": 76.4},
+          {"method": "Kimi-K2.5", "accuracy": 75.9},
+          {"method": "Gemini-3.0-pro", "accuracy": 73.5},
+          {"method": "Claude-Opus-4.6", "accuracy": 63.0},
+          {"method": "Claude-Opus-4.5", "accuracy": 57.3}
+        ]
+      }
+    ]
+  },
+  "videomme_tradeoff": {
+    "title": "Video-MME (Long): Accuracy vs. Context Length",
+    "caption": "Video-MME-Long: accuracy vs. context cost.",
+    "xlabel": "Context Length (K tokens)",
+    "ylabel": "Accuracy (%)",
+    "xlim": [0, 420],
+    "ylim": [60, 90],
+    "xticks": [0, 50, 100, 150, 200, 300, 400],
+    "yticks": [60, 70, 80, 90],
+    "xminor": 25,
+    "yminor": 5,
+    "items": [
+      {
+        "method": "Ours (Agent)",
+        "accuracy": 85.1,
+        "avg_context_length": 61,
+        "min_context_length": 40.8,
+        "max_context_length": 104.3,
+        "color": "#D62728",
+        "marker": "star",
+        "highlight": true
+      },
+      {
+        "method": "VideoSeek (Agent)",
+        "accuracy": 81.2,
+        "avg_context_length": 4.0704,
+        "color": "#8C564B",
+        "marker": "triangle_down"
+      },
+      {
+        "method": "DrVideo (Agent)",
+        "accuracy": 71.7,
+        "avg_context_length": 126.2592,
+        "color": "#1F77B4",
+        "marker": "square"
+      },
+      {
+        "method": "HAVEN (Agent)",
+        "accuracy": 82.8,
+        "avg_context_length": 362.88,
+        "min_context_length": 145.152,
+        "max_context_length": 580.608,
+        "color": "#2CA02C",
+        "marker": "diamond"
+      },
+      {
+        "method": "Seed-2.0-pro",
+        "accuracy": 85.4,
+        "avg_context_length": 112,
+        "min_context_length": 95.4,
+        "max_context_length": 135.5,
+        "color": "#9467BD",
+        "marker": "triangle_up"
+      },
+      {
+        "method": "Gemini-3.1-pro-preview",
+        "accuracy": 86.4,
+        "avg_context_length": 179,
+        "min_context_length": 122.8,
+        "max_context_length": 273.0,
+        "color": "#FF7F0E",
+        "marker": "pentagon"
+      }
+    ]
+  }
+}

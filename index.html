@@ -323,7 +323,7 @@
 
     <div id="panel-paper" class="trace-panel">
     <p class="note">VideoMME, <code>qVZOKel-gpE</code>. Coarse localization, then subtitle and local visual cross-checks.</p>
-    <details class="yt-embed">
+    <details class="yt-embed" open>
       <summary>Watch on YouTube · qVZOKel-gpE</summary>
       <div class="yt-frame">
         <iframe data-src="https://www.youtube-nocookie.com/embed/qVZOKel-gpE" title="YouTube video qVZOKel-gpE" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -841,11 +841,16 @@
     dyn.scrollIntoView({behavior: "smooth", block: "start"});
   });
 
-  document.addEventListener("toggle", ev => {
-    const box = ev.target;
-    if (!box || !box.classList || !box.classList.contains("yt-embed") || !box.open) return;
+  function activateYtEmbed(box) {
+    if (!box || !box.open) return;
     const iframe = box.querySelector("iframe");
     if (iframe && !iframe.src && iframe.dataset.src) iframe.src = iframe.dataset.src;
+  }
+  document.querySelectorAll(".yt-embed[open]").forEach(activateYtEmbed);
+  document.addEventListener("toggle", ev => {
+    const box = ev.target;
+    if (!box || !box.classList || !box.classList.contains("yt-embed")) return;
+    activateYtEmbed(box);
   }, true);
 })();
 </script>

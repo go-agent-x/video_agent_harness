@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<title>VideoExpert-A — Paper Brief</title>
+<title>VideoXAgent — Paper Brief</title>
 <style>
   :root {
     --bg: #ffffff;
@@ -183,7 +183,7 @@
 <body>
 <header>
   <nav class="nav">
-    <a class="brand" href="#top">VideoExpert-A</a>
+    <a class="brand" href="#top">VideoXAgent</a>
     <a href="#abstract">Abstract</a>
     <a href="#method">Method</a>
     <a href="#exp">Experiments</a>
@@ -193,13 +193,13 @@
 
 <main id="top">
   <h1>Online Video Agent Harness for Long Video Understanding</h1>
-  <p class="meta">Sen Yang<sup>*</sup>, Boqiang Duan<sup>*</sup>, Jing Yang, Weihao Bo, Jie Liu, Boyuan Tong, Ze Feng, Wenkang Zhang<br>Hua Wu, Jingdong Wang<br><br>Baidu Inc.<br><span style="font-size:.85em">* Equal contribution.</span></p>
+Jingdong Wang, Hua Wu<br><br>Baidu Inc.<br><span style="font-size:.85em">* Equal contribution.</span></p>
 
   <section id="abstract">
     <h2>Abstract</h2>
     <p class="abstract">
       Long-video understanding often behaves like a visual needle-in-a-haystack problem: query-relevant evidence is sparsely distributed, while packing dense frames into a single VLM context incurs <em>context rot</em> and high cost.
-      We present <strong>VideoExpert-A</strong>, a purely online video-agent harness that starts from the raw video file and user query, plans and decomposes the task, invokes specialized expert tools on demand, and aggregates multimodal evidence with conflict resolution.
+      We present <strong>VideoXAgent</strong>, a purely online video-agent harness that starts from the raw video file and user query, plans and decomposes the task, invokes specialized expert tools on demand, and aggregates multimodal evidence with conflict resolution.
       Tools are guided by a data-driven taxonomy of atomic capabilities (scripts, VLMs, domain models).
       Across Video-MME-Long, LongVideoBench-Long, LVBench, and MINERVA, the agent is competitive with frontier LMMs under ~50k agent context—even on hour-long videos—and can bring a visually weak or text-only orchestrator into this range.
     </p>
@@ -269,7 +269,7 @@
         <tr><td>Seed-2.0-pro</td><td>LMM</td><td>85.5%</td><td>76.4%</td><td>~112k</td></tr>
         <tr><td>Gemini-3.1-Pro-preview</td><td>LMM</td><td>86.2%</td><td>—</td><td>~179k</td></tr>
         <tr><td>HAVEN</td><td>Agent</td><td>82.8%</td><td>71.7%*</td><td>Thousand-frame preprocess</td></tr>
-        <tr class="ours"><td>VideoExpert-A</td><td>Agent</td><td>85.1%</td><td>76.5%</td><td>~51–55k · tens of frames</td></tr>
+        <tr class="ours"><td>VideoXAgent</td><td>Agent</td><td>85.1%</td><td>76.5%</td><td>~51–55k · tens of frames</td></tr>
       </tbody>
     </table>
     </div>
@@ -295,8 +295,8 @@
         <tr><td>Gemini-3-Pro-preview</td><td>LMM</td><td>—</td><td>—</td><td>65.0%‡</td><td>—</td><td>—</td></tr>
         <tr><td>Doubao-Seed-1.8</td><td>LMM</td><td>—</td><td>—</td><td>62.4%</td><td>—</td><td>—</td></tr>
         <tr><td>Doubao-Seed-2.0-pro</td><td>LMM</td><td>—</td><td>—</td><td>66.5%</td><td>—</td><td>—</td></tr>
-        <tr class="ours"><td>VideoExpert-A</td><td>Agent</td><td>GLM-5.2</td><td>Qwen3.6-35B-A3B</td><td>65.4%</td><td>33.7k (17.7k–189.9k)</td><td>35.6</td></tr>
-        <tr class="ours"><td>VideoExpert-A</td><td>Agent</td><td>Claude-Opus-4.6</td><td>Qwen3.6-35B-A3B</td><td>65.7%</td><td>37.1k (25.0k–97.6k)</td><td>27.5</td></tr>
+        <tr class="ours"><td>VideoXAgent</td><td>Agent</td><td>GLM-5.2</td><td>Qwen3.6-35B-A3B</td><td>65.4%</td><td>33.7k (17.7k–189.9k)</td><td>35.6</td></tr>
+        <tr class="ours"><td>VideoXAgent</td><td>Agent</td><td>Claude-Opus-4.6</td><td>Qwen3.6-35B-A3B</td><td>65.7%</td><td>37.1k (25.0k–97.6k)</td><td>27.5</td></tr>
       </tbody>
     </table>
     </div>
@@ -384,7 +384,7 @@
     <div id="panel-dyn" class="trace-panel" hidden></div>
   </section>
 
-  <footer>VideoExpert-A paper brief.</footer>
+  <footer>VideoXAgent paper brief.</footer>
 </main>
 <script id="plot-data" type="application/json">
 {
